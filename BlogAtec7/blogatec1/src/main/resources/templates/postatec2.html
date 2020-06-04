@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="icon" type="image/x-icon" href="https://www.atec.pt/templates/atc16/favicon.ico">
+	
+    <title>Blog ATEC</title>
+    
+    <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet">
+    
+    <!-- <link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" /> -->
+    
+    <style>
+     
+        #mainNav .navbar-nav .nav-item .nav-link.active,
+        #mainNav .navbar-nav .nav-item .nav-link:hover {
+            color: white;
+            /*#fed136*/
+        }
+        
+        
+    	.footer {
+            padding: 25px 0;
+            text-align: center;
+        }
+        
+        .footer span.copyright {
+            font-size: 90%;
+            line-height: 40px;
+            text-transform: none;
+            font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        }
+        
+        .footer ul.quicklinks {
+            font-size: 90%;
+            line-height: 40px;
+            margin-bottom: 0;
+            text-transform: none;
+            font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        }
+        
+        ul.social-buttons {
+            margin-bottom: 0;
+        }
+        
+        ul.social-buttons li a {
+            font-size: 20px;
+            line-height: 50px;
+            display: block;
+            width: 50px;
+            height: 50px;
+            transition: all .3s;
+            color: #fff;
+            border-radius: 100%;
+            outline: 0;
+            background-color: #212529;
+        }
+        
+        ul.social-buttons li a:active,
+        ul.social-buttons li a:focus,
+        ul.social-buttons li a:hover {
+            background-color: #A7E2FF;
+            /*#fed136*/
+        }
+    </style>
+    
+</head>
+
+<body>
+    <!-- nosso cabeçalho -->
+   	<!--  <header>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="/" style="font-weight: bold;">Blog ATEC</a>
+        </nav>
+    </header> -->
+    
+   	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #A7E2FF; opacity: 0.6;">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+<!--                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#localizacao" style="color: #4E4259">Localização</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#cursos" style="color: #4E4259">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#sobre" style="color: #4E4259">Sobre</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/login" style="color: #4E4259; opacity: none;">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/registration" style="color: #4E4259; opacity: none;">Registo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="jumbotron jumbotron-fluid" style="background-color: #A7E2FF;">
+  		<div class="container">
+    		<h1><a class="display-4" href="/" style="color: #4E4259;">Blog ATEC</a></h1>
+    		<h5 style="color: white;">Novas Metas & Novos Horizontes</h5>
+  		</div>
+	</div>
+    
+    <!-- nossa listagem dos POST -->
+    <section>
+
+        <div class="container" style="width: 60%; padding-bottom: 10px; padding-top: 10px; margin: auto;">
+            <!-- nossa breadcrump -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+                    <li class="breadcrumb-item active" aria-current="page" style="color: #4E4259;">Blog ATEC</li>
+                </ol>
+            </nav>
+            <!-- nosso card -->
+
+            <!-- <div class="card" style="margin-top: 30px; margin-bottom: 10px; border-radius: 8px; border: solid; border-color: #A7E2FF;" th:each="post:${postatec}"> -->
+            <div class="card" style="margin-top: 30px; margin-bottom: 10px; border: none;"th:each="post:${postatec}">
+            	<!-- <img src="https://www.atec.pt/images/stories/cursos/Fotos_Cursos/ATEC_Curso-Tecnologias-e-Programa%C3%A7%C3%A3o_desktop.jpg" class="card-img-top" alt=""> -->
+                <div class="card-header" style="background-color: #C0D9E5;">
+                    <!-----------------------------------------Nosso Titulo   -->
+
+                    <a th:href="${(#mvc.url('CAC#getCursos').arg(0, post.id)).build()}" style="color: #4E4259; padding-top: 5px; font-size: 25px; font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;">
+                        <span th:text="${post.curso}"></span>
+                    </a>
+                </div>
+
+                <div class="card-body" style="background-color: #F6F8FA;">
+                    <blockquote class="blockquote mb-0">
+                        <!--------------------------------------Nosso texto com 400 caracteres somente   -->
+                        <!--       <footer class="blockquote-footer"> <span th:utext="${#string.abbreviate(post.texto,300)}"> </span><cite title="Source Title"></cite></footer> -->
+                        <p class="card-text"><span th:utext="${#strings.abbreviate(post.texto,300)}"> </span></p>
+                        
+                        <p>
+                        	<small class="text-muted">
+                        		<span th:text="${post.autor}"> </span>
+                            	<span th:text="${post.data}"> </span>
+                        	</small>
+                        </p>
+                        
+                        
+                    </blockquote>
+                </div>
+
+				<!-- <div class="card-footer" style="color: #A7E2FF;">
+					------------------------------------Nosso Autor e Data  
+					<p>
+                    	<small class="text-muted">
+                        	<span th:text="${post.autor}"></span>
+                            <span th:text="${post.data}"></span>
+                        </small>
+                    </p>
+				</div> -->
+                   
+            </div>
+
+        </div>
+
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Blog ATEC 2020</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#" style="color: #A7E2FF;">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#" style="color: #A7E2FF;">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

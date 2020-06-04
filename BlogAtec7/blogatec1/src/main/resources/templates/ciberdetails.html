@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://www.atec.pt/templates/atc16/favicon.ico">
+    
+    <title>Atec Blog</title>
+</head>
+
+<body>
+    <!-- nosso cabeçalho -->
+   <!--  <header>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#" style="font-weight: bold;">Atec Blog
+            	<span th:text="${novociber.titulo}"></span>
+            </a>
+        </nav>
+    </header> -->
+    
+    <div class="jumbotron jumbotron-fluid" style="background-color: #A7E2FF;">
+  		<div class="container">
+    		<h1><a class="display-4" href="/postatec" style="color: #4E4259;">Blog ATEC</a></h1>
+    		<h5 style="color: white;">Novas Metas & Novos Horizontes</h5>
+  		</div>
+	</div>
+    
+    <!-- nossa listagem dos POST -->
+    <main>
+
+        <div class="container" style="width: 90%; padding-bottom: 10px; padding-top: 10px; margin: auto;">
+            <!-- nossa breadcrump -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+                    <!-----------------------------------------Nosso Curso   -->
+                    <li class="breadcrumb-item"><a href="/ciber">Blog CIBER</a></li>
+                    <li class="breadcrumb-item active" aria-current="post_ciber"><span th:text="${novociber.curso}"></span></li>
+                </ol>
+            </nav>
+            <!-- ------------------------------------------nosso card -->
+            <article>
+                <h1 class="card-title" style="font-weight: bold; margin-bottom: 20px;"><span th:text="${novociber.titulo}"></span></h1>
+                <p class="card-subtitle mb-2 text-muted">
+                    <i class="material-icons">person_outline</i>
+                    <span th:text="${novociber.autor}"></span>
+                    <br>
+                    <i class="material-icons">date_range</i>
+                    <span th:text="${novociber.data}"></span>
+                </p>
+                <section>
+                    <p class="card-text" style="margin-top: 40px;"><span th:utext="${novociber.texto}"></span></p>
+                </section>
+            </article>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

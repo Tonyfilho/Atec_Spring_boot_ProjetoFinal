@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="icon" type="image/x-icon" href="https://www.atec.pt/templates/atc16/favicon.ico">
+	
+    <title>Blog ATEC / TPSI</title>
+</head>
+
+<body>
+    <!-- nosso cabeçalho -->
+    <!-- <header>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#" style="font-weight: bold;">Atec Blog</a>
+            <a href="/tpsipostform" class="btn btn-primary" role="button">NEWPOST</a>
+        </nav>
+    </header> -->
+    
+    <div class="jumbotron jumbotron-fluid" style="background-color: #A7E2FF;">
+  		<div class="container">
+    		<h1><a class="display-4" href="/postatec" style="color: #4E4259;">Blog ATEC</a></h1>
+    		<h5 style="color: white;">Novas Metas & Novos Horizontes</h5>
+    		<a href="/tpsipostform" class="btn btn-primary" role="button" style="margin-bottom: 0px; margin-top: 10px;">Novo Post</a>
+  		</div>
+	</div>
+    
+    <!-- nossa listagem dos POST -->
+    <section>
+
+        <div class="container" style="width: 60%; padding-bottom: 10px; padding-top: 10px; margin: auto;">
+            <!-- nossa breadcrump -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+                    <!-- <li class="breadcrumb-item"><a href="/postatec">TPSI</a></li> -->
+                    <!-- <li class="breadcrumb-item active" aria-current="tpsi">
+                    	<span th:text="${post.curso}"></span>
+                    </li> -->
+                    <li class="breadcrumb-item active" aria-current="page" style="color: #4E4259;">Blog TPSI</li>
+                </ol>
+            </nav>
+            <!-- nosso card -->
+
+            <div class="card" style="margin-top: 30px; margin-bottom: 10px; border: none;"th:each="post:${pagina}">
+                <div class="card-header" style="background-color: #C0D9E5;">
+                    <!-----------------------------------------Nosso CURSO   -->
+
+                    <a th:href="${(#mvc.url('TC#getCursosTpsi').arg(0, post.id)).build()}" style="color: #4E4259; padding-top: 5px; font-size: 25px; font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;">
+                       
+                       	 <span th:text="${post.titulo}"></span>
+                    </a>
+                </div>
+
+                <div class="card-body" style="background-color: #F6F8FA;">
+                    <blockquote class="blockquote mb-0">
+                        <!--------------------------------------Nosso texto com 300 caracteres somente   -->
+                        <p class="card-text"><span th:utext="${#strings.abbreviate(post.texto,300)}"> </span></p>
+						
+						<!--------------------------------------Nosso Autor e Data   -->
+						<p>
+                        	<small class="text-muted">
+                        		<span th:text="${post.autor}"> </span>
+                            	<span th:text="${post.data}"> </span>
+                        	</small>
+                        </p>
+						
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

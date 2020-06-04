@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://www.atec.pt/templates/atc16/favicon.ico">
+    
+    <title>Blog ATEC</title>
+</head>
+
+<body>
+    <!-- nosso cabeçalho -->
+    <header>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#" style="font-weight: bold;">Blog ATEC</a>
+        </nav>
+    </header>
+    <!-- nossa listagem dos POST -->
+    <main>
+
+        <div class="container" style="width: 60%; padding-bottom: 30px; margin: auto;">
+            <!-- nossa breadcrump -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="background-color: white; padding-left: 0px;">
+                    <li class="breadcrumb-item active" aria-current="page">Blog ATEC</li>
+                </ol>
+            </nav>
+            <!-- nosso card -->
+
+            <div class="card" style="margin-top: 20px" th:each="post : ${postatec}">
+                <div class="card-header">
+                    <!-----------------------------------------Nosso Titulo   -->
+
+                    <a href="#" style="font-weight: bold; color: black; padding-top: 5px">
+                        <span th:text="${post.titulo}"></span>
+                    </a>
+                </div>
+
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <!--------------------------------------Nosso Autor e Data   -->
+                        <p>
+                            <span th:text="${post.autor}"> </span>
+                            <span th:text="${post.data}"> </span>
+                        </p>
+                        <!--------------------------------------Nosso texto com 400 caracteres somente   -->
+                        <!--       <footer class="blockquote-footer"> <span th:utext="${#string.abbreviate(post.texto,300)}"> </span><cite title="Source Title"></cite></footer> -->
+                        <p class="card-text"><span th:utext="${#strings.abbreviate(post.texto,300)}"> </span></p>
+
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
