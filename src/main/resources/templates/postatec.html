@@ -10417,33 +10417,7 @@ body {
 
 <body>
 
-  <!-- Navigation -->
-  <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Start Bootstrap</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
+
   
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #A7E2FF; opacity: 0.6;">
         <div class="container">
@@ -10453,15 +10427,7 @@ body {
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
-<!--                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#localizacao" style="color: #4E4259">Localização</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#cursos" style="color: #4E4259">Cursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#sobre" style="color: #4E4259">Sobre</a>
-                    </li> -->
+
                     <li class="nav-item">
             			Bem-Vindo <span sec:authentication="principal.username" style="margin-right: 761px;">User</span><!-- 761px -->
         			</li>
@@ -10487,7 +10453,10 @@ body {
 	</div>
 
   <!-- Page Content -->
-  <div class="container" style="width: 60%; padding-bottom: 10px; padding-top: 10px; margin: auto;">
+  
+  <!-- <div class="container" style="width: 60%; padding-bottom: 10px; padding-top: 10px; margin: auto;"> -->
+  
+  <div class="container" style="width: 100%; padding-bottom: 1%; padding-top: 1.2%;">
 
     <div class="row">
 
@@ -10505,7 +10474,10 @@ body {
   		</nav>
 
         <!-- Blog Post -->
-        <div class="card mb-4" style="width: 102%; margin-top: 30px; margin-bottom: 10px; border: none;"th:each="post:${postatec}">
+        
+        <!-- <div class="card mb-4" style="width: 102%; margin-top: 30px; margin-bottom: 10px; border: none;"th:each="post:${postatec}"> -->
+        
+        <div class="card mb-4" style="width: 102%; margin-top: 3%; margin-bottom: 0%; border: none;"th:each="post:${postatec}">
           <div class="card-header" style="background-color: #C0D9E5;">
           	<a th:href="${(#mvc.url('CAC#getCursos').arg(0, post.id)).build()}" style="color: #4E4259; padding-top: 5px; font-size: 25px; font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;">
             	<span th:text="${post.curso}"></span>
@@ -10541,7 +10513,10 @@ body {
       </div>
 
       <!-- Sidebar Widgets Column -->
-      <div class="col-md-4" style="margin-top: 54px; margin-left: 0px;">
+      
+      <!-- <div class="col-md-4" style="margin-top: 54px; margin-left: 0px;"> -->
+      
+      <div class="col-md-4" style="margin-top: 4%; margin-left: 0%;">
 
         <!-- Search Widget -->
         <div class="card my-4">

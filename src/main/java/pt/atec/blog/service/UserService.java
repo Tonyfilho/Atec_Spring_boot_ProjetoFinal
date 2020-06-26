@@ -8,6 +8,8 @@ import pt.atec.blog.web.dto.UserRegistrationDto;
 public interface UserService extends UserDetailsService {
 	
 	User findByEmail(String email);
+	
+	//User findByEmail(String firsName);
 
     User save(UserRegistrationDto registration);
 

@@ -51,10 +51,10 @@ public class TpsiControler {
 	@RequestMapping(value="/tpsipostform",  method=RequestMethod.POST)
 //	BindingResult result, RedirectAttributes erro
 	public String savePostTpsi(@Valid Tpsi tpsi ,BindingResult result, RedirectAttributes attributes) {
-//			if(result.hasErrors()){
-// //           attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos!");
-//	            return "redirect:/newtpsi";
-//	        }
+			if(result.hasErrors()){
+             attributes.addFlashAttribute("mensagem", "Verifique se os campos obrigatórios foram preenchidos!");
+	            return "redirect:/newtpsi";
+	        }
     		
 		tpsi.setData(LocalDate.now()); //setando a data
 		tpsi.setCurso("TPSI");

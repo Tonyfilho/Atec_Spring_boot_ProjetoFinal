@@ -12,7 +12,7 @@ public class IndexController {
 	
 	public String paginaPrincipal() {
 		
-		return "index";
+		return "/index";
 	}
 	
 	@RequestMapping(value = "/blog", method = RequestMethod.GET)

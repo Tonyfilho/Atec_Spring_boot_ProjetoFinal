@@ -29,6 +29,10 @@ public class UserServiceImpl implements UserService {
     public User findByEmail(String email){
         return userRepository.findByEmail(email);
     }
+    
+    /*public User findByEmail(String firstName){
+        return userRepository.findByEmail(firstName);
+    }*/
 
     public User save(UserRegistrationDto registration){
         User user = new User();
@@ -44,12 +48,23 @@ public class UserServiceImpl implements UserService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email);
         if (user == null){
-            throw new UsernameNotFoundException("Username ou Senha Inválidos.");
+            throw new UsernameNotFoundException("Email ou Senha Inválidos.");
         }
         return new org.springframework.security.core.userdetails.User(user.getEmail(),
                 user.getPassword(),
                 mapRolesToAuthorities(user.getRoles()));
     }
+    
+    /*@Override
+    public UserDetails loadUserByUsername(String firstName) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(firstName);
+        if (user == null){
+            throw new UsernameNotFoundException("Email ou Senha Inválidos.");
+        }
+        return new org.springframework.security.core.userdetails.User(user.getEmail(),
+                user.getPassword(),
+                mapRolesToAuthorities(user.getRoles()));
+    }*/
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
         return roles.stream()

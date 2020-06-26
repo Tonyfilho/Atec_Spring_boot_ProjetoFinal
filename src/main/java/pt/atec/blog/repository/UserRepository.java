@@ -9,5 +9,7 @@ import pt.atec.blog.model.User;
 public interface UserRepository extends JpaRepository<User, Long> {
 	
 	User findByEmail(String email);
+	
+	//User findByEmail(String firstName);
 
 }

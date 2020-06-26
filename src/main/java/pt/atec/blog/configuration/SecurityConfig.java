@@ -19,6 +19,7 @@ import pt.atec.blog.service.UserService;
 public class SecurityConfig extends WebSecurityConfigurerAdapter { //lista de pagina sem autenticação private
     static final String[] AUTH_LIST = {
         "/",
+        "index",
         "/blog",
         "/postatec",
         "/postatec/{id}",
@@ -34,30 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //lista de pa
         "/robotica/{id}", 
         "/automoveis", 
         "/automoveis/{id}"
+        
     };
-
-	
-	/*
-	 * @Override protected void configure(HttpSecurity http) throws Exception {
-	 * http.csrf().disable().authorizeRequests().antMatchers(AUTH_LIST).permitAll()
-	 * .anyRequest().authenticated().and().formLogin().permitAll()
-	 * .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")); }
-	 */
-
-	/*
-	 * @Override protected void configure(AuthenticationManagerBuilder auth) throws
-	 * Exception { auth.inMemoryAuthentication()
-	 * .withUser("guapo").password("{noop}123").roles("ADMIN");
-	 * 
-	 * }
-	 */
-
-	/*
-	 * @Override public void configure(WebSecurity web) throws Exception {
-	 * //web.ignoring().antMatchers("/bootstrap/**"); //
-	 * web.ignoring().antMatchers("/bootstrap/**", "/style/**"); }
-	 */
-    
     
     @Autowired
     private UserService userService;
@@ -65,6 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //lista de pa
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+        		.csrf() /*permite acesso depois do login os posts*/
+        		.disable() /*permite acesso depois do login os posts*/
         		.authorizeRequests()
         			.antMatchers(
         					"/registration**",
@@ -89,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter { //lista de pa
                         .invalidateHttpSession(true)
                         .clearAuthentication(true)
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                        .logoutSuccessUrl("/login?logout")
+                        .logoutSuccessUrl("/login?logout")/*/login?logout*/
                 .permitAll();
     }
 

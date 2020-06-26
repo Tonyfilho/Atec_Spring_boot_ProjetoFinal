@@ -18,22 +18,13 @@ public class AutomoveisController {
 	@Autowired
 	AutomoveisService automoveisservice;
 	
-//	@RequestMapping(value = "/automoveis", method = RequestMethod.GET)
-//	public ModelAndView pegaTitulo(String titulo) {
-//		ModelAndView mv = new ModelAndView("automoveis");
-//		Automoveis automoveis = automoveisservice.findByTitulo(titulo);
-//		mv.addObject("pegatitulo", automoveis);
-//		
-//		return mv;
-//	}
-	
+
 	@RequestMapping(value = "/automoveis", method = RequestMethod.GET)
 	public ModelAndView listaTodos() {
 	ModelAndView mv = new ModelAndView("automoveis");
 	List<Automoveis> automoveis = automoveisservice.listAll();
 	mv.addObject("pagina", automoveis);	
 
-	ModelAndView mv2 = new ModelAndView("automoveis");
 		return mv;
 	}	
 
